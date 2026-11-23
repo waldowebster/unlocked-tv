@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "id": "counter",
+  "name": "Counter",
+  "type": "native",
+  "runtime": "python3",
+  "entry": "main.py",
+  "color": "#E0A178"
+}
