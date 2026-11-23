@@ -5,6 +5,7 @@ cd "$source_dir"
 report="$HOME/unlocked-tv-validation"
 mkdir -p "$report"
 export PYTHONPATH="$source_dir${PYTHONPATH:+:$PYTHONPATH}"
+"$HOME/.local/bin/unlocked-tv-env" python3 scripts/probe-graphics.py > "$report/graphics.json"
 "$HOME/.local/bin/unlocked-tv-env" python3 -m unittest discover -s tests -v > "$report/unit.log" 2>&1
 "$HOME/.local/bin/unlocked-tv-env" python3 scripts/test-e2e.py "$report" > "$report/e2e.log" 2>&1
 "$HOME/.local/bin/unlocked-tv-env" python3 - <<'PY' > "$report/hardware.json"
@@ -16,3 +17,4 @@ print(json.dumps({'drivers':[sdl.SDL_GetVideoDriver(i).decode() for i in range(s
 PY
 cat "$report/report.json"
 cat "$report/hardware.json"
+cat "$report/graphics.json"

@@ -45,6 +45,7 @@ The E2E script starts the actual GUI and child app processes against temporary u
 When mpv is available it tests H.264/AAC decoding, pause, seeking, volume, and resume using null audio/video output.
 It writes screenshots and a JSON report.
 That test cannot verify physical HDMI, speaker output, hardware decoding performance, or a physical remote.
+On the Pi, `scripts/validate-pi.sh` also initializes the actual GBM/EGL graphics stack through a render device, which catches runtime driver-path failures even without HDMI connected.
 
 ## Controls
 
